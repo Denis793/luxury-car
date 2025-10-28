@@ -48,7 +48,7 @@
   justify-content: center;
   overflow: hidden;
   animation: neonShadow 1s alternate-reverse infinite forwards;
-  gap: 8px;
+  gap: var(--spacing-s);
 
   @media (min-width: $breakpoint-m) {
     padding: var(--spacing-s);
@@ -56,6 +56,11 @@
     font-size: var(--fs-s);
     letter-spacing: 2px;
   }
+}
+
+.btnBuyNow svg {
+  margin-left: var(--spacing-s);
+  flex-shrink: 0;
 }
 
 @keyframes arrowRightAnimation {

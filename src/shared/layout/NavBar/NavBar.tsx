@@ -1,6 +1,7 @@
 'use client';
 import React from 'react';
 import Link from 'next/link';
+import clsx from 'clsx';
 import { useState, useCallback, useEffect } from 'react';
 import { HiOutlineX } from 'react-icons/hi';
 import { CiMenuFries } from 'react-icons/ci';
@@ -25,23 +26,14 @@ export const NavBar = () => {
   const [hoveredItem, setHoveredItem] = useState<null | string>(null);
   const [openDropdown, setOpenDropdown] = useState(false);
 
-  // Блокування скролу при відкритому меню
   useEffect(() => {
-    if (openDropdown) {
-      document.body.style.overflow = 'hidden';
-      document.body.style.position = 'fixed';
-      document.body.style.width = '100%';
-    } else {
-      document.body.style.overflow = '';
-      document.body.style.position = '';
-      document.body.style.width = '';
-    }
+    const bodyElement = document.body;
+    const menuOpenClass = 'menu-open';
 
-    // Cleanup функція
+    bodyElement.classList.toggle(menuOpenClass, openDropdown);
+
     return () => {
-      document.body.style.overflow = '';
-      document.body.style.position = '';
-      document.body.style.width = '';
+      bodyElement.classList.remove(menuOpenClass);
     };
   }, [openDropdown]);
 
@@ -56,7 +48,7 @@ export const NavBar = () => {
       return (
         <>
           {showLogo && (
-            <li className={`${styles.logoContent} ${kapakana.className}`}>
+            <li className={clsx(styles.logoContent, kapakana.className)}>
               <Link className={styles.logoContent} href="/" replace>
                 LuxuryAuto
               </Link>
@@ -96,7 +88,7 @@ export const NavBar = () => {
       </ul>
 
       <div className={styles.dropdownMenuContent}>
-        <Link className={`${styles.logoContent} ${kapakana.className}`} href="/" replace>
+        <Link className={clsx(styles.logoContent, kapakana.className)} href="/" replace>
           LuxuryAuto
         </Link>
 
@@ -112,7 +104,6 @@ export const NavBar = () => {
           <ul
             className={styles.dropdownMenu}
             onClick={(e: React.MouseEvent<HTMLUListElement>) => {
-              // Закриваємо меню тільки якщо клік був по фону, а не по контенту
               if (e.target === e.currentTarget) {
                 setOpenDropdown(false);
               }

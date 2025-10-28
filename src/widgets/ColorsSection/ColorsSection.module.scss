@@ -59,7 +59,7 @@
   justify-content: flex-start;
   align-items: flex-start;
   flex-direction: column;
-  gap: 32px;
+  gap: var(--gap-2xl);
 
   @media (min-width: $breakpoint-l) {
     height: 100%;
@@ -99,11 +99,11 @@
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  gap: 0.8rem;
+  gap: var(--spacing-m);
   flex-wrap: wrap;
 
   @media (min-width: $breakpoint-m) {
-    gap: 1rem;
+    gap: var(--gap-m);
     flex-wrap: nowrap;
   }
 }
@@ -137,25 +137,25 @@
 }
 
 .colorContent:nth-child(1) {
-  background-color: rgb(207, 14, 14);
+  background-color: var(--car-red);
   border-radius: 50%;
   opacity: .8;
 }
 
 .colorContent:nth-child(2) {
-  background-color: rgb(23, 149, 25);
+  background-color: var(--car-green);
   border-radius: 50%;
   opacity: .8;
 }
 
 .colorContent:nth-child(3) {
-  background-color: rgb(153, 178, 25);
+  background-color: var(--car-yellow);
   border-radius: 50%;
   opacity: .8;
 }
 
 .colorContent:nth-child(4) {
-  background-color: rgb(95, 9, 98);
+  background-color: var(--car-purple);
   border-radius: 50%;
   opacity: .8;
 }

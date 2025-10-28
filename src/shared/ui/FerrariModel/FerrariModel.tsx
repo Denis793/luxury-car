@@ -11,10 +11,10 @@ type Iprops = {
 } & JSX.IntrinsicElements['group'];
 
 const objCores = {
-  red: '#ff0000',
-  purple: '#c700c7',
+  red: '#9e0000',
+  purple: '#380038',
   yellow: '#dfdb00',
-  green: '#06aa00',
+  green: '#123a00',
 };
 
 const FerrariModel = ({ colorState, ...props }: Iprops) => {

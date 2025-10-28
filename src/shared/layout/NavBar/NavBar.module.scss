@@ -13,7 +13,7 @@
   display: none;
   align-items: center;
   justify-content: flex-end;
-  gap: 2rem;
+  gap: var(--gap-xl);
 
   @media (min-width: $breakpoint-m) {
     display: flex;
@@ -55,6 +55,7 @@
   transition: transform 0.3s ease-in-out;
   position: relative;
   z-index: 1002;
+  margin: var(--spacing-s);
 }
 
 .iconMenu:hover {
@@ -130,7 +131,7 @@
   top: 0;
   left: 0;
   display: flex;
-  gap: 2rem;
+  gap: var(--gap-xl);
   align-items: center;
   justify-content: center;
   flex-direction: column;
