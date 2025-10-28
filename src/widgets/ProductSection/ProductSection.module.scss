@@ -10,15 +10,6 @@
 .introductionCallContent {
   position: relative;
   height: 100vh;
-
-  @media (min-width: $breakpoint-m) {
-    aspect-ratio: 4/5;
-    height: auto;
-  }
-
-  @media (min-width: $breakpoint-l) {
-    aspect-ratio: 16/9;
-  }
 }
 
 .introductionBackground {
