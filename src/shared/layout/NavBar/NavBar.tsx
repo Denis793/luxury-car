@@ -1,15 +1,17 @@
 'use client';
+import React from 'react';
 import Link from 'next/link';
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { HiOutlineX } from 'react-icons/hi';
 import { CiMenuFries } from 'react-icons/ci';
 import { Big_Shoulders_Stencil } from 'next/font/google';
 import styles from './NavBar.module.scss';
 
 const kapakana = Big_Shoulders_Stencil({
-  weight: ['100', '100', '300', '400', '500', '600', '700', '900'],
+  weight: ['400', '700', '900'],
   display: 'swap',
   subsets: ['latin'],
+  fallback: ['serif'],
 });
 
 const items = [
@@ -23,8 +25,28 @@ export const NavBar = () => {
   const [hoveredItem, setHoveredItem] = useState<null | string>(null);
   const [openDropdown, setOpenDropdown] = useState(false);
 
+  // Блокування скролу при відкритому меню
+  useEffect(() => {
+    if (openDropdown) {
+      document.body.style.overflow = 'hidden';
+      document.body.style.position = 'fixed';
+      document.body.style.width = '100%';
+    } else {
+      document.body.style.overflow = '';
+      document.body.style.position = '';
+      document.body.style.width = '';
+    }
+
+    // Cleanup функція
+    return () => {
+      document.body.style.overflow = '';
+      document.body.style.position = '';
+      document.body.style.width = '';
+    };
+  }, [openDropdown]);
+
   const ListItems = useCallback(
-    ({ underline = true }) => {
+    ({ underline = true, showLogo = false }: { underline?: boolean; showLogo?: boolean }) => {
       const props: { onClick?: () => void } = {};
 
       if (openDropdown) {
@@ -33,11 +55,13 @@ export const NavBar = () => {
 
       return (
         <>
-          <li className={`${styles.logoContent} ${kapakana.className}`}>
-            <Link className={styles.logoContent} href="/" replace>
-              FexLuxAuto
-            </Link>
-          </li>
+          {showLogo && (
+            <li className={`${styles.logoContent} ${kapakana.className}`}>
+              <Link className={styles.logoContent} href="/" replace>
+                LuxuryAuto
+              </Link>
+            </li>
+          )}
 
           {items.map((item) => (
             <li
@@ -68,32 +92,33 @@ export const NavBar = () => {
   return (
     <nav className={styles.menuContent}>
       <ul className={styles.menu}>
-        <ListItems />
+        <ListItems showLogo={true} />
       </ul>
 
       <div className={styles.dropdownMenuContent}>
         <Link className={`${styles.logoContent} ${kapakana.className}`} href="/" replace>
-          FexLuxAuto
+          LuxuryAuto
         </Link>
 
-        <button onClick={() => setOpenDropdown(true)}>
-          <CiMenuFries size={32} className={styles.iconMenu} />
+        <button onClick={() => setOpenDropdown(!openDropdown)}>
+          {openDropdown ? (
+            <HiOutlineX size={32} className={styles.iconMenu} />
+          ) : (
+            <CiMenuFries size={32} className={styles.iconMenu} />
+          )}
         </button>
 
         {openDropdown && (
-          <ul className={styles.dropdownMenu}>
-            <div className={styles.iconCloseContent}>
-              <button
-                className={styles.btnCloseDropdown}
-                onClick={() => {
-                  setOpenDropdown(false);
-                }}
-              >
-                <HiOutlineX size={32} />
-              </button>
-            </div>
-
-            <ListItems underline={false} />
+          <ul
+            className={styles.dropdownMenu}
+            onClick={(e: React.MouseEvent<HTMLUListElement>) => {
+              // Закриваємо меню тільки якщо клік був по фону, а не по контенту
+              if (e.target === e.currentTarget) {
+                setOpenDropdown(false);
+              }
+            }}
+          >
+            <ListItems underline={false} showLogo={false} />
           </ul>
         )}
       </div>

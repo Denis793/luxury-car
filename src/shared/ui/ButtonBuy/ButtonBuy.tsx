@@ -1,6 +1,6 @@
 import { IconType } from 'react-icons';
+import clsx from 'clsx';
 import styles from './ButtonBuy.module.scss';
-// import { HTMLAttributes } from 'react';
 
 interface Iprops {
   Icon: IconType;
@@ -10,8 +10,9 @@ interface Iprops {
 export const ButtonBuy = ({ Icon, absPos = false, ...props }: Iprops) => {
   return (
     <button
-      className={`${styles.btnBuyNow}
-        ${absPos ? styles.abs : ''}`}
+      className={clsx(styles.btnBuyNow, {
+        [styles.abs]: absPos,
+      })}
       {...props}
     >
       <span>Buy now</span>

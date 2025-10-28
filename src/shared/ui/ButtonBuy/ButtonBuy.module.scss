@@ -2,26 +2,44 @@
 
 .abs {
   position: absolute;
-  top: 80%;
-  right: 10%;
+  top: 70%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  margin: 0 16px;
+  max-width: calc(100vw - 32px);
+
+  @media (min-width: $breakpoint-m) {
+    top: 80%;
+    left: auto;
+    right: 10%;
+    transform: none;
+    margin: 0;
+    max-width: none;
+  }
 }
 
 @keyframes neonShadow {
   from {
-    box-shadow: 0 0 0 1px var(--default-shadow), /* 1 */ 3px 3px 0 0 var(--default-shadow),
-      /* 2 */ 10px 0 0 0 var(--bg-color-cyan), /* 3 placeholder */ 10px 0 0 0 var(--bg-color-cyan); /* 4 placeholder */
+    box-shadow: 0 0 0 1px var(--default-shadow),
+      3px 3px 0 0 var(--default-shadow),
+      10px 0 0 0 var(--bg-color-cyan),
+      10px 0 0 0 var(--bg-color-cyan);
   }
+
   to {
-    box-shadow: 0 0 0 1px var(--default-shadow), /* 1 */ 0 0 4px 0 var(--default-shadow),
-      /* 2 */ 0px 0px 1px 1px rgba(0, 0, 255, 0.3), /* 3 */ -3px -3px 10px 0 rgba(0, 0, 255, 0.3); /* 4 */
+    box-shadow: 0 0 0 1px var(--default-shadow),
+      0 0 4px 0 var(--default-shadow),
+      0px 0px 1px 1px rgba(0, 0, 255, 0.3),
+      -3px -3px 10px 0 rgba(0, 0, 255, 0.3);
   }
 }
 
 .btnBuyNow {
-  padding: 8px;
-  width: 200px;
-  font-size: 18px;
-  letter-spacing: 2px;
+  padding: 8px 16px;
+  width: clamp(150px, 45vw, 200px);
+  font-size: clamp(14px, 4vw, 18px);
+  letter-spacing: 1px;
   font-weight: 500;
   backdrop-filter: blur(8px);
   border-radius: 8px;
@@ -31,6 +49,13 @@
   overflow: hidden;
   animation: neonShadow 1s alternate-reverse infinite forwards;
   gap: 8px;
+
+  @media (min-width: $breakpoint-m) {
+    padding: 8px;
+    width: 200px;
+    font-size: 18px;
+    letter-spacing: 2px;
+  }
 }
 
 @keyframes arrowRightAnimation {
@@ -39,7 +64,7 @@
   }
 }
 
-.btnBuyNow > svg {
+.btnBuyNow>svg {
   stroke-width: 1;
   animation: arrowRightAnimation 0.5s alternate-reverse infinite;
 }
@@ -56,12 +81,12 @@
   transition: width 0.4s ease-in, opacity 0.4s ease-in;
 }
 
-.btnBuyNow:hover > svg {
+.btnBuyNow:hover>svg {
   animation: none;
   stroke-width: 2;
 }
 
-.btnBuyNow:hover > span,
+.btnBuyNow:hover>span,
 .btnBuyNow svg {
   position: relative;
   z-index: 1;

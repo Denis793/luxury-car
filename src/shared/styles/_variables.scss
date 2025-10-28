@@ -1,5 +1,6 @@
-:root[data-theme="dark"] {
-  --text-color: rgb(221, 213, 213);
+:root {
+
+  --text-color: rgb(255, 255, 255);
   --bg-color: rgb(24, 22, 22);
   --bg-color-2: rgb(18, 17, 17);
   --bg-color-cyan: rgba(9, 10, 48, 0.3);
@@ -9,4 +10,50 @@
   --brown-leather: #8B4513;
   --default-shadow: rgba(255, 255, 255, 0.1);
   --hover-accent: hsla(0, 7%, 65%, 0.266);
+
+  --ff-main: "Rajdhani", "Rajdhani Fallback", sans-serif;
+
+  --fs-body: 10px;
+
+  --fs-base: 1.25rem;
+  --fs-nav-mobile: 2rem;
+  --fs-nav-laptop: 1rem;
+  --fs-nav-desktop: 1.2rem;
+
+  --fs-h1: 3rem;
+  --fs-h2: 2.8rem;
+  --fs-h3: 2.5rem;
+  --fs-h4: 2rem;
+  --fs-h5: 1.5rem;
+  --fs-h6: 1.25rem;
+
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-bold: 600;
+
+  --toggle-size: 1.5rem;
+
+  /* === Radius === */
+  --radius-s: 0.5rem;
+  --radius-m: 1rem;
+  --radius-l: 2rem;
+  --radius-full: 50%;
+
+  /* === Spacing === */
+  --spacing-s: 0.5rem;
+  --spacing-m: 0.75rem;
+  --spacing-l: 1rem;
+  --spacing-xl: 1.5rem;
+  --spacing-2xl: 2rem;
+  --spacing-3xl: 4rem;
+  --spacing-4xl: 10rem;
+
+  --gap-s: 0.5rem;
+  --gap-m: 1rem;
+  --gap-l: 1.5rem;
+  --gap-xl: 2rem;
+  --gap-2xl: 4rem;
 }
+
+$breakpoint-m: 840px;
+$breakpoint-l: 1280px;
