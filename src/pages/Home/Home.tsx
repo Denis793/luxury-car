@@ -10,7 +10,7 @@ const CompanySection = dynamic(() =>
 const ColorsSection = dynamic(() => import('@/widgets/ColorsSection').then((mod) => ({ default: mod.ColorsSection })));
 const AboutSection = dynamic(() => import('@/widgets/AboutSection').then((mod) => ({ default: mod.AboutSection })));
 
-export function Home() {
+export default function Home() {
   return (
     <div className={`content ${styles.page}`}>
       <ProductSection />
