@@ -1,0 +1,74 @@
+.about {
+
+  min-height: 100vh;
+  width: 100%;
+  padding: 20vh 5vw;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  letter-spacing: 4px;
+  background: url('/background-about.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 2;
+}
+
+.siteSpecs {
+
+  font-size: 26px;
+  font-weight: 300;
+  hyphens: auto;
+  word-break: break-all;
+  line-height: 1.5em
+}
+
+.specsContainer {
+
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+
+}
+
+.specsTitle {
+  letter-spacing: 4px;
+  font-weight: 400;
+}
+
+.specsList {
+  color: inherit;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.specItem {
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  width: min(500px, 100vw);
+  border-radius: 8px;
+  padding: 16px;
+  gap: 16px;
+  box-shadow: 0px 0px 3px 0px var(--default-shadow);
+  background: var(--bg-color-cyan);
+  transition: transform .4s ease;
+}
+
+
+.specItem:hover {
+  transform: translate(-2px);
+}
+
+.specLabelContent {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+}
+
+.specLabelContent svg {
+  stroke-width: .5;
+}

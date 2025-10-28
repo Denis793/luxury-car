@@ -1,0 +1,140 @@
+.company {
+
+    margin: 0 auto;
+    padding: 4rem 5vw;
+    min-height: 100vh;
+    width: 100%;
+
+    letter-spacing: 2px;
+    font-weight: 300;
+    background: linear-gradient(
+    180deg,
+    #0a0e1a 0%,           /* Conecta com Colors */
+    #0d1520 25%,
+    #121820 50%,
+    #0f1419 75%,
+    #0a0d15 100%
+  );
+  position: relative;
+
+}
+
+
+.company::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 212, 255, 0.4) 0%,
+    rgba(0, 212, 255, 0.1) 50%,
+    transparent 100%
+  );
+}
+
+.company svg {
+
+    stroke-width: .5;
+
+}
+
+.trustList, .trustListSubList, .guaranteesList {
+
+    display: flex;
+    gap:16px;
+    flex-direction: column;
+    justify-content: center;
+    letter-spacing: 4px;
+
+}
+
+
+
+.trustListSubList {
+
+    margin: 8px 16px;
+    font-size: 14px;
+
+}
+
+.trustSubListTitle {
+
+    display: inline-block;
+    margin-bottom: 16px;
+
+}
+
+.trustListSubListItem {
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap:4px;
+
+}
+
+.trustListItem, .trustSubListTitleContent {
+
+    display: flex;
+    flex-direction: row;
+    gap:8px;
+
+}
+
+
+.whoWeAre, .trust, .whatWeDo, .guarantees {
+
+    width: 100%;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap:8px;
+
+}
+
+.titlePartCompany {
+
+    font-weight: 400;
+    margin-bottom: 8px;
+
+}
+
+
+
+.whatWeDoList {
+
+    width: 100%;
+    display: flex;
+    gap:16px;
+    flex-wrap: wrap;
+
+}
+
+.whatWeDoListItem {
+
+    flex:0 0 250px;
+    display: flex;
+    align-items: center;
+    gap:8px;
+    padding: 8px;
+    box-shadow: 0px 0px 1px 1px var(--default-shadow);
+    border-radius: 8px;
+
+}
+
+.guaranteesListItem {
+
+    display: flex;
+    gap:8px;
+    align-items: center;
+
+}
+
+.guarantessText {
+
+    opacity: 0;
+
+}

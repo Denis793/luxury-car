@@ -1,0 +1,1 @@
+export type colorsCar = 'red' | 'green' | 'yellow' | 'purple'

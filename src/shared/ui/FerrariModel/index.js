@@ -1,0 +1,1 @@
+export { Ferrari } from './FerrariModel';

@@ -1,0 +1,74 @@
+@use '@/shared/styles/variables' as *;
+
+.abs {
+  position: absolute;
+  top: 80%;
+  right: 10%;
+}
+
+@keyframes neonShadow {
+  from {
+    box-shadow: 0 0 0 1px var(--default-shadow), /* 1 */ 3px 3px 0 0 var(--default-shadow),
+      /* 2 */ 10px 0 0 0 var(--bg-color-cyan), /* 3 placeholder */ 10px 0 0 0 var(--bg-color-cyan); /* 4 placeholder */
+  }
+  to {
+    box-shadow: 0 0 0 1px var(--default-shadow), /* 1 */ 0 0 4px 0 var(--default-shadow),
+      /* 2 */ 0px 0px 1px 1px rgba(0, 0, 255, 0.3), /* 3 */ -3px -3px 10px 0 rgba(0, 0, 255, 0.3); /* 4 */
+  }
+}
+
+.btnBuyNow {
+  padding: 8px;
+  width: 200px;
+  font-size: 18px;
+  letter-spacing: 2px;
+  font-weight: 500;
+  backdrop-filter: blur(8px);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  animation: neonShadow 1s alternate-reverse infinite forwards;
+  gap: 8px;
+}
+
+@keyframes arrowRightAnimation {
+  to {
+    transform: translateX(2px);
+  }
+}
+
+.btnBuyNow > svg {
+  stroke-width: 1;
+  animation: arrowRightAnimation 0.5s alternate-reverse infinite;
+}
+
+.btnBuyNow::before {
+  position: absolute;
+  left: 0;
+  opacity: 0;
+  animation: none;
+  content: '';
+  width: 0;
+  height: 100%;
+  background-color: var(--btn-hover);
+  transition: width 0.4s ease-in, opacity 0.4s ease-in;
+}
+
+.btnBuyNow:hover > svg {
+  animation: none;
+  stroke-width: 2;
+}
+
+.btnBuyNow:hover > span,
+.btnBuyNow svg {
+  position: relative;
+  z-index: 1;
+  font-weight: 700;
+}
+
+.btnBuyNow:hover::before {
+  opacity: 0.7;
+  width: 100%;
+}

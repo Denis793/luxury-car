@@ -1,0 +1,58 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  overflow: visible;
+}
+
+html::-webkit-scrollbar {
+  width: 6px;
+}
+
+html::-webkit-scrollbar-thumb {
+  background-color: var(--ferrari-red);
+}
+
+html,
+body {
+  max-width: 100vw;
+  height: 100%;
+  behavior: smooth;
+  background-color: var(--bg-color);
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
+  padding: 1rem;
+  color: var(--text-color);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  appearance: none;
+  border: none;
+  background-color: transparent;
+}
+
+button,
+input,
+textarea {
+  color: inherit;
+  font-family: inherit;
+}
+
+ul,
+li {
+  list-style: none;
+}
