@@ -23,7 +23,7 @@ body {
 
 body {
   overflow-x: hidden;
-  padding: 1rem;
+  padding: var(--spacing-l);
   color: var(--text-color);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

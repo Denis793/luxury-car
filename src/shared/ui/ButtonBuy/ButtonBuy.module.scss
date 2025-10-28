@@ -36,9 +36,9 @@
 }
 
 .btnBuyNow {
-  padding: 8px 16px;
+  padding: var(--spacing-s) var(--gap-m);
   width: clamp(150px, 45vw, 200px);
-  font-size: clamp(14px, 4vw, 18px);
+  font-size: clamp(var(--fs-s), 4vw, var(--fs-s));
   letter-spacing: 1px;
   font-weight: 500;
   backdrop-filter: blur(8px);
@@ -51,9 +51,9 @@
   gap: 8px;
 
   @media (min-width: $breakpoint-m) {
-    padding: 8px;
+    padding: var(--spacing-s);
     width: 200px;
-    font-size: 18px;
+    font-size: var(--fs-s);
     letter-spacing: 2px;
   }
 }

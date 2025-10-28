@@ -58,11 +58,11 @@
 }
 
 .mainIntroduction {
-  font-size: clamp(24px, 6vw, 48px);
+  font-size: clamp(var(--fs-xl), 6vw, var(--fs-3xl));
 }
 
 .subIntroduction {
-  font-size: clamp(12px, 3vw, 18px);
+  font-size: clamp(var(--fs-s), 3vw, var(--fs-l));
 }
 
 .firstScreen,
@@ -82,7 +82,7 @@
 .cardContent {
   margin: 0 auto;
   display: flex;
-  padding: 32px;
+  padding: var(--spacing-2xl);
   align-items: center;
   justify-content: center;
   width: 100%;
