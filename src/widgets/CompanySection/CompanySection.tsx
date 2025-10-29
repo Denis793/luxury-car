@@ -53,35 +53,35 @@ export const CompanySection = () => {
   return (
     <section className={styles.company} id="company">
       <div className={styles.whoWeAre}>
-        <h1 className={styles.titlePartCompany}>Quem somos</h1>
+        <h1 className={styles.titlePartCompany}>Who we are</h1>
         <p>
-          Somos um estúdio independente de engenharia visual e curadoria automotiva. Entregamos experiências digitais de
-          alta performance (UI/3D) e seleção técnica de veículos, com foco em transparência, acessibilidade e métricas
-          objetivas.
+          We are an independent studio of visual engineering and automotive curation. We deliver high-performance
+          digital experiences (UI/3D) and technical vehicle selection, focusing on transparency, accessibility and
+          objective metrics.
         </p>
       </div>
       <div className={styles.trust}>
-        <h1 className={styles.titlePartCompany}>Por que confiar</h1>
+        <h1 className={styles.titlePartCompany}>Why trust us</h1>
         <ul className={styles.trustList}>
           <li className={styles.trustListItem}>
             <span>{'>>>'}</span>
-            <span>Processo Documentado e auditável</span>
+            <span>Documented and auditable process</span>
           </li>
           <li className={styles.trustListItem}>
             <span>{'>>>'}</span>
-            <span>Métricas públicas por projeto</span>
+            <span>Public metrics per project</span>
           </li>
 
           <li className={styles.trustListItem}>
             <div>
               <div className={styles.trustSubListTitleContent}>
                 <span>{'>>>'}</span>
-                <span className={styles.trustSubListTitle}>Rede técnica para:</span>
+                <span className={styles.trustSubListTitle}>Technical network for:</span>
               </div>
               <ul className={styles.trustListSubList}>
                 <li className={styles.trustListSubListItem}>
                   <span>{'>>'}</span>
-                  <span> Inspeção</span>
+                  <span> Inspection</span>
                 </li>
                 <li className={styles.trustListSubListItem}>
                   <span>{'>>'}</span>
@@ -89,7 +89,7 @@ export const CompanySection = () => {
                 </li>
                 <li className={styles.trustListSubListItem}>
                   <span>{'>>'}</span>
-                  <span>Entrega</span>
+                  <span>Delivery</span>
                 </li>
               </ul>
             </div>
@@ -97,52 +97,52 @@ export const CompanySection = () => {
 
           <li className={styles.trustListItem}>
             <span>{'>>>'}</span>
-            <span>Garantias claras.</span>
+            <span>Clear guarantees.</span>
           </li>
 
           <li className={styles.trustListItem}>
             <span>{'>>>'}</span>
-            <span>Qualidade mensurável</span>
+            <span>Measurable quality</span>
           </li>
         </ul>
       </div>
 
       <div className={styles.whatWeDo}>
-        <h1 className={styles.titlePartCompany}>O que fazemos</h1>
+        <h1 className={styles.titlePartCompany}>What we do</h1>
         <ul className={styles.whatWeDoList}>
           <li className={styles.whatWeDoListItem}>
             <HiOutlineWrenchScrewdriver size={32} />
-            <span>Curadoria</span>
+            <span>Curation</span>
           </li>
 
           <li className={styles.whatWeDoListItem}>
             <HiOutlineClipboardDocument size={32} />
-            <span>Relatórios Periódicos</span>
+            <span>Periodic Reports</span>
           </li>
 
           <li className={styles.whatWeDoListItem}>
             <LuPackageCheck size={32} />
-            <span>Entrega assistida</span>
+            <span>Assisted delivery</span>
           </li>
         </ul>
       </div>
 
       <div className={styles.guarantees}>
-        <h1 className={styles.titlePartCompany}>Garantias</h1>
+        <h1 className={styles.titlePartCompany}>Guarantees</h1>
         <ul className={styles.guaranteesList}>
           <li className={styles.guaranteesListItem}>
             <HiOutlineCheck size={24} />
-            <span className={styles.guarantessText}>Procedência e documentação verificadas.</span>
+            <span className={styles.guarantessText}>Verified provenance and documentation.</span>
           </li>
 
           <li className={styles.guaranteesListItem}>
             <HiOutlineCheck size={24} />
-            <span className={styles.guarantessText}>Inspeção mecânica pré-entrega.</span>
+            <span className={styles.guarantessText}>Pre-delivery mechanical inspection.</span>
           </li>
 
           <li className={styles.guaranteesListItem}>
             <HiOutlineCheck size={24} />
-            <span className={styles.guarantessText}>Suporte pós-venda para registro e adaptação.</span>
+            <span className={styles.guarantessText}>Post-sale support for registration and adaptation.</span>
           </li>
         </ul>
       </div>

@@ -19,11 +19,15 @@ export const ProductSection = () => {
     window.addEventListener('load', () => ScrollTrigger.refresh());
     ScrollTrigger.normalizeScroll({ allowNestedScroll: true, momentum: 1 });
 
+    // Check if it's mobile device
+    const isMobile = window.innerWidth <= 768;
+    const scrollEnd = isMobile ? '+=500%' : '+=1000%';
+
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: `.${styles.screensContent}`,
         start: `top top`,
-        end: `+=1000%`,
+        end: scrollEnd,
         scrub: 1,
         snap: 1 / 6,
         pin: true,
@@ -33,7 +37,7 @@ export const ProductSection = () => {
     tl.to(
       `.${styles.mainIntroduction}`,
       {
-        text: 'Precisão de relojoeiro, arrogância de pista — assinado em vermelho.',
+        text: 'Watchmaker precision, track arrogance — signed in red.',
         ease: 'none',
         duration: 1,
       },
@@ -41,7 +45,7 @@ export const ProductSection = () => {
     ).to(
       `.${styles.subIntroduction}`,
       {
-        text: { value: '— Ícone da virada de milênio' },
+        text: { value: '— Icon of the millennium turn' },
         duration: 1,
         ease: 'none',
       },
@@ -78,21 +82,21 @@ export const ProductSection = () => {
             <div className={styles.cardContent}>
               <Card
                 Icon={HiOutlineCurrencyDollar}
-                title="Valor de coleção estável"
+                title="Stable collection value"
                 newClass="card1"
-                text="Ícone da virada do milênio,
-            ponto de transição de linguagem e engenharia.
-            Procura consistente, oferta limitada, aura de
-            clássico moderno."
+                text="Icon of the millennium turn,
+            transition point of language and engineering.
+            Consistent demand, limited supply, aura of
+            modern classic."
               />
 
               <Card
                 Icon={FiWind}
-                title="Aero e design"
+                title="Aero and design"
                 newClass="card2"
-                text="Curvas limpas, proporção certa, entradas de ar
-            funcionais. É forma que nasce da função, não efeito
-            especial."
+                text="Clean curves, right proportion, functional
+            air intakes. It's form born from function, not
+            special effects."
               />
             </div>
           </div>
@@ -100,20 +104,20 @@ export const ProductSection = () => {
             <div className={styles.cardContent}>
               <Card
                 Icon={FiCrosshair}
-                title="Arquitetura de motor central-traseiro"
+                title="Mid-rear engine architecture"
                 newClass="card3"
-                text="Baixo momento polar de inércia e distribuição
-            de massa entre eixos: entrada de curva ágil, transições
-            estáveis e saída previsível."
+                text="Low polar moment of inertia and mass
+            distribution between axles: agile corner entry, stable
+            transitions and predictable exit."
               />
 
               <Card
                 Icon={FiWind}
-                title="Sistema de freios eficiente e escalável"
+                title="Efficient and scalable brake system"
                 newClass="card4"
-                text="Conjunto com boa resistência a fading e caminho
-            claro de upgrades (compostos, discos, dutos) para uso
-            intensivo."
+                text="Assembly with good fading resistance and clear
+            upgrade path (compounds, discs, ducts) for intensive
+            use."
               />
             </div>
           </div>
@@ -121,20 +125,20 @@ export const ProductSection = () => {
             <div className={styles.cardContent}>
               <Card
                 Icon={FiTool}
-                title="Manutenibilidade do conjunto V8"
+                title="V8 assembly maintainability"
                 newClass="card5"
-                text="Trem de força confiável com
-            documentação / procedimentos amplos, reduzindo tempo
-            de imobilização e custo operacional relativo."
+                text="Reliable powertrain with comprehensive
+            documentation/procedures, reducing downtime
+            and relative operational cost."
               />
 
               <Card
                 Icon={FiWind}
-                title="Variante Challenge Stradale (foco em pista)"
+                title="Challenge Stradale variant (track focus)"
                 newClass="card6"
-                text="Redução de massa, calibração dinâmica mais
-            agressiva e frenagem de maior capacidade térmica,
-            homologada para rua."
+                text="Mass reduction, more aggressive dynamic
+            calibration and higher thermal capacity braking,
+            street homologated."
               />
             </div>
           </div>
@@ -142,20 +146,20 @@ export const ProductSection = () => {
             <div className={styles.cardContent}>
               <Card
                 Icon={FiTarget}
-                title="Experiência de condução consistente"
+                title="Consistent driving experience"
                 newClass="card7"
-                text="Calibração integrada de
-            chassi / freios / powertrain resultando em comportamento
-            previsível e repetível em estrada e track day."
+                text="Integrated chassis/brakes/powertrain
+            calibration resulting in predictable and repeatable
+            behavior on road and track day."
               />
 
               <Card
                 Icon={FiZap}
-                title="Motorização V8 3.6 aspirada"
+                title="Naturally aspirated V8 3.6 engine"
                 newClass="card8"
-                text="Entrega linear e resposta imediata ao
-            acelerador em ampla faixa de rotação, sem
-            dependência de sobrealimentação."
+                text="Linear delivery and immediate throttle
+            response across wide rpm range, without
+            supercharging dependency."
               />
             </div>
           </div>

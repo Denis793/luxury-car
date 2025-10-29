@@ -14,27 +14,50 @@ export const AboutSection = () => {
   useGSAP(() => {
     window.addEventListener('load', () => ScrollTrigger.refresh());
     ScrollTrigger.normalizeScroll({ allowNestedScroll: true, momentum: 1 });
+
+    const isMobile = window.innerWidth <= 768;
+    const scrollDistance = isMobile ? window.innerHeight * 1 : window.innerHeight * 2;
+
     const tl = gsap.timeline({
       scrollTrigger: {
         invalidateOnRefresh: true,
         trigger: `#about`,
         scrub: 1,
         start: 'top top',
-        end: () => window.innerHeight * 2,
+        end: () => scrollDistance,
       },
     });
+
+    tl.fromTo(
+      `.aboutParagraph`,
+      {
+        scrambleText: {
+          text: '',
+          chars: `*#@_$`,
+        },
+      },
+      {
+        scrambleText: {
+          text: `This project is solely intended for demonstration
+                of technical skills. There is no actual product
+                being sold or any form of advertising.`,
+          chars: `*#@_$`,
+        },
+        duration: 0.5,
+      },
+      0
+    );
 
     tl.to(
       `.aboutParagraph`,
       {
         scrambleText: {
-          text: `Este projeto tem apenas o intuito de demonstração
-                de habilidades técnicas. Não há de fato nenhum produto
-                a ser vendido o qualquer forma de propaganda.`,
+          text: '',
           chars: `*#@_$`,
         },
+        duration: 0.3,
       },
-      0
+      0.7
     );
 
     tl.fromTo(
@@ -61,49 +84,51 @@ export const AboutSection = () => {
   });
 
   return (
-    <section className={styles.about} id="about">
-      <div className={styles.siteSpecs}>
-        <p className="aboutParagraph"></p>
-      </div>
-      <div className={styles.specsContainer}>
-        <h1 className={styles.specsTitle}>DEVELOPER.SPECS</h1>
+    <>
+      <section className={styles.about} id="about">
+        <div className={styles.siteSpecs}>
+          <p className="aboutParagraph"></p>
+        </div>
+        <div className={styles.specsContainer}>
+          <h1 className={styles.specsTitle}>DEVELOPER.SPECS</h1>
 
-        <ul className={styles.specsList}>
-          <li className={styles.specItem}>
-            <div className={styles.specLabelContent}>
-              <HiOutlineCodeBracketSquare size={24} />
-              <span>Stack</span>
-            </div>
-            <span className={styles.specValue}>React · Next.js · GSAP · Three.js</span>
-          </li>
+          <ul className={styles.specsList}>
+            <li className={styles.specItem}>
+              <div className={styles.specLabelContent}>
+                <HiOutlineCodeBracketSquare size={24} />
+                <span>Stack</span>
+              </div>
+              <span className={styles.specValue}>React · Next.js · GSAP · Three.js</span>
+            </li>
 
-          <li className={styles.specItem}>
-            <div className={styles.specLabelContent}>
-              <HiOutlineBolt size={24} />
-              <span>Approach</span>
-            </div>
-            <span className={styles.specValue}>Performance-first · Pixel-perfect</span>
-          </li>
+            <li className={styles.specItem}>
+              <div className={styles.specLabelContent}>
+                <HiOutlineBolt size={24} />
+                <span>Approach</span>
+              </div>
+              <span className={styles.specValue}>Performance-first · Pixel-perfect</span>
+            </li>
 
-          <li className={styles.specItem}>
-            <div className={styles.specLabelContent}>
-              <HiOutlineSparkles size={24} />
-              <span>Output</span>
-            </div>
-            <span className={styles.specValue}>High-fidelity digital experiences</span>
-          </li>
+            <li className={styles.specItem}>
+              <div className={styles.specLabelContent}>
+                <HiOutlineSparkles size={24} />
+                <span>Output</span>
+              </div>
+              <span className={styles.specValue}>High-fidelity digital experiences</span>
+            </li>
 
-          <li className={styles.specItem}>
-            <div className={styles.specLabelContent}>
-              <HiOutlineSignal size={24} />
-              <span>Status</span>
-            </div>
-            <span className={styles.specValue}>
-              <span>Disponível para projetos ambiciosos</span>
-            </span>
-          </li>
-        </ul>
-      </div>
-    </section>
+            <li className={styles.specItem}>
+              <div className={styles.specLabelContent}>
+                <HiOutlineSignal size={24} />
+                <span>Status</span>
+              </div>
+              <span className={styles.specValue}>
+                <span>Available for ambitious projects</span>
+              </span>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </>
   );
 };
