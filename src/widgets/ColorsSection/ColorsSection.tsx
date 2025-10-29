@@ -30,8 +30,8 @@ export const ColorsSection = () => {
     gsap.set(`.${styles.colorsContent}`, { x: 0, opacity: 1 });
 
     gsap.to(`.${styles.colors}`, {
-      backgroundPosition: '0px 300px',
-      duration: 8,
+      backgroundPosition: '0px 100px',
+      duration: 15,
       ease: 'none',
       repeat: -1,
       yoyo: true,

@@ -12,27 +12,22 @@
     linear-gradient(90deg, rgba(0, 212, 255, 0.06) 1px, transparent 1px),
     linear-gradient(rgba(0, 212, 255, 0.03) 1px, transparent 1px),
     linear-gradient(90deg, rgba(0, 212, 255, 0.03) 1px, transparent 1px);
-  background-size:
-    80px 80px,
-    80px 80px,
-    20px 20px,
-    20px 20px;
-  background-position:
-    0 0,
-    0 0,
-    0 0;
-
-  /* Запобігаємо горизонтальному scroll */
+  background-size: 80px 80px, 80px 80px, 20px 20px, 20px 20px;
+  background-position: 0 0, 0 0, 0 0;
   overflow-x: hidden;
   position: relative;
+  will-change: background-position;
+  backface-visibility: hidden;
+  transform: translateZ(0);
 
   @media (max-width: $breakpoint-m) {
     height: 100svh;
     min-height: 100vh;
+    background-size: 60px 60px, 60px 60px, 15px 15px, 15px 15px;
+    transform: translate3d(0, 0, 0);
+    contain: layout style paint;
   }
 }
-
-
 
 .colorsContent {
   margin: auto 0;
@@ -48,12 +43,8 @@
   height: clamp(600px, 85vh, 1000px);
   min-height: clamp(500px, 80vh, 900px);
   max-height: 95vh;
-
-  /* Забезпечуємо, що елемент завжди залишається у viewport */
   transform: translateX(0);
   will-change: transform, opacity;
-
-  /* Запобігаємо горизонтальному overflow */
   max-width: 100vw;
   box-sizing: border-box;
 
