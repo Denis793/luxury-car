@@ -21,8 +21,8 @@ export const ColorsSection = () => {
 
   useGSAP(() => {
     gsap.to(`.${styles.colors}`, {
-      backgroundPosition: '0px 500px',
-      duration: 10,
+      backgroundPosition: '0px 300px',
+      duration: 8,
       ease: 'none',
       repeat: -1,
       yoyo: true,
@@ -34,10 +34,10 @@ export const ColorsSection = () => {
       {
         scrollTrigger: {
           trigger: `.${styles.colors}`,
-          start: '20% center',
-          end: '+=100%',
-
-          scrub: true,
+          start: 'top 90%',
+          end: 'top 60%',
+          scrub: 1,
+          toggleActions: 'play none none reverse',
         },
         opacity: 1,
       }
@@ -45,23 +45,46 @@ export const ColorsSection = () => {
 
     gsap.fromTo(
       `.${styles.colorsContent}`,
-      { translateX: '-200%' },
+      { translateX: '-100%', opacity: 0 },
       {
         scrollTrigger: {
           trigger: `.${styles.colors}`,
-          start: 'top top',
-          end: '+=100%',
-          scrub: true,
-          pin: true,
-
-          snap: 1,
+          start: 'top 80%',
+          end: 'center center',
+          scrub: 1,
+          toggleActions: 'play none none reverse',
         },
-        ease: 'none',
+        ease: 'power2.out',
         translateX: 0,
+        opacity: 1,
         zIndex: 2,
-        duration: 1,
       }
     );
+
+    const isMobile = window.innerWidth <= 768;
+    if (isMobile) {
+      ScrollTrigger.getAll().forEach((st) => {
+        if (st.trigger?.classList?.contains(styles.colors.split(' ')[0])) {
+          st.kill();
+        }
+      });
+
+      gsap.fromTo(
+        `.${styles.colorsContent}`,
+        { scale: 0.9, opacity: 0 },
+        {
+          scrollTrigger: {
+            trigger: `.${styles.colors}`,
+            start: 'top 95%',
+            end: 'top 75%',
+            scrub: 0.5,
+          },
+          scale: 1,
+          opacity: 1,
+          ease: 'back.out(1.2)',
+        }
+      );
+    }
   });
 
   useEffect(() => {
