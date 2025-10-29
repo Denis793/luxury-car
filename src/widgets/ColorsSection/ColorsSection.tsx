@@ -11,6 +11,7 @@ import { HiOutlineArrowRight } from 'react-icons/hi2';
 import { colorsCar } from '@/types/colorCars';
 import { ContactShadows, Environment, Lightformer, OrbitControls } from '@react-three/drei';
 import { useIsClient } from '@/shared/hooks/useIsClient';
+import clsx from 'clsx';
 import styles from './ColorsSection.module.scss';
 
 gsap.registerPlugin(useGSAP);
@@ -26,6 +27,8 @@ export const ColorsSection = () => {
   useGSAP(() => {
     if (!isClient) return;
 
+    gsap.set(`.${styles.colorsContent}`, { x: 0, opacity: 1 });
+
     gsap.to(`.${styles.colors}`, {
       backgroundPosition: '0px 300px',
       duration: 8,
@@ -33,7 +36,6 @@ export const ColorsSection = () => {
       repeat: -1,
       yoyo: true,
     });
-
     gsap.fromTo(
       `.${styles.colorsContent}`,
       { opacity: 0 },
@@ -51,7 +53,7 @@ export const ColorsSection = () => {
 
     gsap.fromTo(
       `.${styles.colorsContent}`,
-      { translateX: '-100%', opacity: 0 },
+      { x: -200, opacity: 0.3 },
       {
         scrollTrigger: {
           trigger: `.${styles.colors}`,
@@ -59,11 +61,17 @@ export const ColorsSection = () => {
           end: 'center center',
           scrub: 1,
           toggleActions: 'play none none reverse',
+          onUpdate: (self) => {
+            const element = document.querySelector(`.${styles.colorsContent}`);
+            if (element && self.progress === 1) {
+              gsap.set(element, { x: 0, opacity: 1 });
+            }
+          },
         },
         ease: 'power2.out',
-        translateX: 0,
+        x: 0,
         opacity: 1,
-        zIndex: 2,
+        duration: 1,
       }
     );
 
@@ -74,6 +82,8 @@ export const ColorsSection = () => {
           st.kill();
         }
       });
+
+      gsap.set(`.${styles.colorsContent}`, { scale: 1, opacity: 1, x: 0 });
 
       gsap.fromTo(
         `.${styles.colorsContent}`,
@@ -98,6 +108,25 @@ export const ColorsSection = () => {
     setColor(arrayCars[radioId]);
   }, [radioId, isClient]);
 
+  useEffect(() => {
+    if (!isClient) return;
+
+    const handleResize = () => {
+      const element = document.querySelector(`.${styles.colorsContent}`);
+      if (element) {
+        gsap.set(element, { x: 0, opacity: 1, scale: 1 });
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    handleResize();
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [isClient]);
+
   return (
     <>
       <section id="colors" className={styles.colors}>
@@ -110,8 +139,9 @@ export const ColorsSection = () => {
                 {arrayCars.map((_, index) => (
                   <div
                     key={index}
-                    className={`${styles.colorContent}
-                  ${radioId === index ? styles.selectedColor : ''}`}
+                    className={clsx(styles.colorContent, {
+                      [styles.selectedColor]: radioId === index,
+                    })}
                   >
                     <input type="radio" name="colors" value={index} onChange={() => setRadioId(index)} />
                   </div>
