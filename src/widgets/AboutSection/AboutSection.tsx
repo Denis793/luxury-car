@@ -15,25 +15,17 @@ export const AboutSection = () => {
     window.addEventListener('load', () => ScrollTrigger.refresh());
     ScrollTrigger.normalizeScroll({ allowNestedScroll: true, momentum: 1 });
 
-    const isMobile = window.innerWidth <= 768;
-    const scrollDistance = isMobile ? window.innerHeight * 1 : window.innerHeight * 2;
-
     const tl = gsap.timeline({
       scrollTrigger: {
         invalidateOnRefresh: true,
         trigger: `#about`,
-        scrub: 2,
-        start: 'top center',
-        end: () => scrollDistance,
-        onUpdate: (self) => {
-          // Ensures smooth animation sync with scroll
-          const progress = self.progress;
-          if (progress < 0.3) {
-            // Text appearing phase
-          } else if (progress > 0.7) {
-            // Text disappearing phase
-          }
-        },
+        scrub: 1,
+        start: 'top 80%',
+        end: 'bottom 20%',
+        onEnter: () => {},
+        onLeave: () => {},
+        onEnterBack: () => {},
+        onLeaveBack: () => {},
       },
     });
 
@@ -66,7 +58,7 @@ export const AboutSection = () => {
         },
         ease: 'none',
       },
-      0.6
+      0.8
     );
 
     tl.fromTo(
@@ -76,7 +68,7 @@ export const AboutSection = () => {
         opacity: 0,
       },
       { y: 0, opacity: 1, ease: 'power2.out' },
-      0.3
+      0.2
     );
 
     gsap.utils.toArray(`.${styles.specItem}`).forEach((e, index) => {
@@ -88,7 +80,7 @@ export const AboutSection = () => {
           translateY: 0,
           ease: 'power2.out',
         },
-        0.4 + index * 0.1
+        0.3 + index * 0.05
       );
     });
   });
