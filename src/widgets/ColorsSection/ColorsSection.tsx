@@ -1,6 +1,7 @@
 'use client';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useEffect, useState } from 'react';
 import { Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
@@ -12,6 +13,7 @@ import { ContactShadows, Environment, Lightformer, OrbitControls } from '@react-
 import styles from './ColorsSection.module.scss';
 
 gsap.registerPlugin(useGSAP);
+gsap.registerPlugin(ScrollTrigger);
 
 const arrayCars: Array<colorsCar> = ['red', 'green', 'yellow', 'purple'];
 
