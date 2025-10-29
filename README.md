@@ -7,7 +7,7 @@ Modern, interactive 3D car customization landing page featuring a realistic Ferr
 ## 👀 Preview
 
 <p align="center">
-  <a href="#" target="_blank">
+  <a href="https://luxury-car-wogm.vercel.app/" target="_blank">
     <img src="https://img.shields.io/badge/View%20Live%20Demo-Ferrari%203D-red?style=for-the-badge" alt="View Project">
   </a>
 </p>
@@ -17,9 +17,9 @@ Modern, interactive 3D car customization landing page featuring a realistic Ferr
 ## 📷 Screenshots
 
 <div align="center">
-  <img src="./src/assets/images/preview-desktop.png" alt="Ferrari 3D Showcase Desktop" width="100%" />
-  <img src="./src/assets/images/preview-mobile.png" alt="Ferrari 3D Showcase Mobile" width="100%" />
-  <img src="./src/assets/images/preview-3d-model.png" alt="Interactive 3D Ferrari Model" width="100%" />
+  <img src="https://github.com/Denis793/luxury-car/blob/main/src/assets/images/screens/Screenshot-1-LuxuryAuto.png" alt="Ferrari 3D Showcase Desktop" width="100%" />
+  <img src="https://github.com/Denis793/luxury-car/blob/main/src/assets/images/screens/Screenshot-2-LuxuryAuto.png" alt="Ferrari 3D Showcase Mobile" width="100%" />
+  <img src="https://github.com/Denis793/luxury-car/blob/main/src/assets/images/screens/Screenshot-3-LuxuryAuto.png" alt="Interactive 3D Ferrari Model" width="100%" />
 </div>
 
 ---
