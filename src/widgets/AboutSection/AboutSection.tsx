@@ -99,7 +99,9 @@ export const AboutSection = () => {
           <p className="aboutParagraph"></p>
         </div>
         <div className={styles.specsContainer}>
-          <h1 className={styles.specsTitle}>DEVELOPER.DENYS</h1>
+          <a className={styles.specsTitle} href="https://github.com/Denis793" target="_blank" rel="noopener noreferrer">
+            DEVELOPER.DENYS
+          </a>
 
           <ul className={styles.specsList}>
             <li className={styles.specItem}>
