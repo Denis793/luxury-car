@@ -22,9 +22,18 @@ export const AboutSection = () => {
       scrollTrigger: {
         invalidateOnRefresh: true,
         trigger: `#about`,
-        scrub: 1,
-        start: 'top top',
+        scrub: 2,
+        start: 'top center',
         end: () => scrollDistance,
+        onUpdate: (self) => {
+          // Ensures smooth animation sync with scroll
+          const progress = self.progress;
+          if (progress < 0.3) {
+            // Text appearing phase
+          } else if (progress > 0.7) {
+            // Text disappearing phase
+          }
+        },
       },
     });
 
@@ -43,7 +52,7 @@ export const AboutSection = () => {
                 being sold or any form of advertising.`,
           chars: `*#@_$`,
         },
-        duration: 0.5,
+        ease: 'none',
       },
       0
     );
@@ -55,9 +64,9 @@ export const AboutSection = () => {
           text: '',
           chars: `*#@_$`,
         },
-        duration: 0.3,
+        ease: 'none',
       },
-      0.7
+      0.6
     );
 
     tl.fromTo(
@@ -66,19 +75,20 @@ export const AboutSection = () => {
         y: -20,
         opacity: 0,
       },
-      { y: 0, opacity: 1, yoyo: true },
-      '< 0.3'
+      { y: 0, opacity: 1, ease: 'power2.out' },
+      0.3
     );
 
-    gsap.utils.toArray(`.${styles.specItem}`).forEach((e) => {
+    gsap.utils.toArray(`.${styles.specItem}`).forEach((e, index) => {
       tl.fromTo(
         e!,
-        { opacity: 0, translateY: '-100%' },
+        { opacity: 0, translateY: '-50%' },
         {
           opacity: 1,
           translateY: 0,
+          ease: 'power2.out',
         },
-        '< 0.2'
+        0.4 + index * 0.1
       );
     });
   });
@@ -90,7 +100,7 @@ export const AboutSection = () => {
           <p className="aboutParagraph"></p>
         </div>
         <div className={styles.specsContainer}>
-          <h1 className={styles.specsTitle}>DEVELOPER.SPECS</h1>
+          <h1 className={styles.specsTitle}>DEVELOPER.DENYS</h1>
 
           <ul className={styles.specsList}>
             <li className={styles.specItem}>
