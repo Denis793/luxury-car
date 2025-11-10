@@ -7,7 +7,7 @@ Modern, interactive 3D car customization landing page featuring a realistic Ferr
 ## 👀 Preview
 
 <p align="center">
-  <a href="https://luxury-car-wogm.vercel.app/" target="_blank">
+  <a href="https://luxury-car-weld.vercel.app/" target="_blank">
     <img src="https://img.shields.io/badge/View%20Live%20Demo-Ferrari%203D-red?style=for-the-badge" alt="View Project">
   </a>
 </p>
